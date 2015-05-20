@@ -1,6 +1,15 @@
-<div class="col-sm-6">
-    <!-- Token -->
-    <input type="hidden" name="_token" value="{{ csrf_token() }}">
+@if ($errors->any()) 
+<!--<div class="text-danger" style="margin: 10px"></div>-->
+@foreach($errors->all() as $error) 
+<li  class="text-danger">{{ $error }}</li> 
+@endforeach 
+
+@endif
+
+
+<!-- Token -->
+<input type="hidden" name="_token" value="{{ csrf_token() }}">
+<div class="col-sm-6" style="margin-top: 20px">
 
     <!-- Name -->
     <div class="form-group">
