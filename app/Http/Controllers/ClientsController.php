@@ -27,4 +27,15 @@ class clientsController extends Controller {
         return redirect('clients');
     }
 
+    public function edit($id) {
+        //
+    }
+
+    public function destroy($id) {
+
+        Clients::destroy($id);
+
+        return redirect('clients');
+    }
+
 }
