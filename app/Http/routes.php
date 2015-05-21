@@ -19,7 +19,12 @@ Route::group(['middleware' => ['auth']], function () {
     //    Clientes
     Route::get('clients', 'ClientsController@index');
     Route::get('clients/create', 'ClientsController@create');
-    Route::post('clients/store', 'ClientsController@store');
+//    Route::post('clients/store', 'ClientsController@store');
+
+    Route::post('clients/store', [
+        'as'   => 'clients.store', 'uses' => 'ClientsController@store'
+    ]);
+
 
     Route::get('clients/edit/{id}', 'ClientsController@edit')->where('id', '[0-9]+');
 

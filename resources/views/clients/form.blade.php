@@ -1,5 +1,5 @@
 @if ($errors->any()) 
-<!--<div class="text-danger" style="margin: 10px"></div>-->
+
 @foreach($errors->all() as $error) 
 <li  class="text-danger">{{ $error }}</li> 
 @endforeach 
@@ -8,37 +8,38 @@
 
 
 <!-- Token -->
-<input type="hidden" name="_token" value="{{ csrf_token() }}">
+{!! Form::hidden('email', csrf_token()); !!}
+
 <div class="col-sm-6" style="margin-top: 20px">
 
     <!-- Name -->
     <div class="form-group">
-        <label class="control-label">{{ ucfirst(trans('form.name')) }}: </label>
-        <input type="text" class="form-control" name="name" value="{{ old('name') }}">
+        {!! Form::label('name', ucfirst(trans('form.name'))); !!}
+        {!! Form::text('name', old('name'), ['class' => 'form-control']); !!}
     </div>
 
     <!-- E-mail -->
     <div class="form-group">
-        <label class="control-label">{{ ucfirst(trans('form.email')) }}: </label>
-        <input type="email" class="form-control" name="email" value="{{ old('email') }}">
+        {!! Form::label('email', ucfirst(trans('form.email'))); !!}
+        {!! Form::email('email', old('email'), ['class' => 'form-control']); !!}
     </div>
 
     <!-- Company -->
     <div class="form-group">
-        <label class="control-label">{{ ucfirst(trans('form.company')) }}: </label>
-        <input type="text" class="form-control" name="company" value="{{ old('company') }}">
+        {!! Form::label('company', ucfirst(trans('form.company'))); !!}
+        {!! Form::text('company', old('company'), ['class' => 'form-control']); !!}
     </div>
 
     <!-- Phone -->
     <div class="form-group">
-        <label class="control-label">{{ ucfirst(trans('form.phone')) }}: </label>
-        <input type="tel" class="form-control" name="phone" value="{{ old('phone') }}">
+        {!! Form::label('phone', ucfirst(trans('form.phone'))); !!}
+        {!! Form::text('company', old('phone'), ['class' => 'form-control']); !!}
     </div>
 
     <!-- Cellphone -->
     <div class="form-group">
-        <label class="control-label">{{ ucfirst(trans('form.cellphone')) }}: </label>
-        <input type="tel" class="form-control" name="cellphone" value="{{ old('cellphone') }}">
+        {!! Form::label('cellphone', ucfirst(trans('form.cellphone'))); !!}
+        {!! Form::text('company', old('cellphone'), ['class' => 'form-control']); !!}
     </div>
 
     @include('layout.buttons', ['buttons' => ['submit']])
