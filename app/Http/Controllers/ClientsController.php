@@ -9,9 +9,9 @@ use Illuminate\Support\Facades\Input;
 
 class clientsController extends Controller {
 
-    public function index(Clients $clients) {
+    public function index() {
 
-        return view('clients.index')->with('clients', $clients->all())->with('rows', $clients->count());
+        return view('clients.index')->with('clients', Clients::all())->with('rows', Clients::count());
     }
 
     public function create() {
@@ -28,6 +28,12 @@ class clientsController extends Controller {
     }
 
     public function edit($id) {
+        $client = Clients::find($id);
+
+        return view('clients.edit', compact('client'));
+    }
+
+    public function update($id) {
         //
     }
 

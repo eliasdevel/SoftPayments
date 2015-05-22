@@ -19,16 +19,15 @@ Route::group(['middleware' => ['auth']], function () {
     //    Clientes
     Route::get('clients', 'ClientsController@index');
     Route::get('clients/create', 'ClientsController@create');
-//    Route::post('clients/store', 'ClientsController@store');
+    Route::get('clients/edit/{id}', 'ClientsController@edit')->where('id', '[0-9]+');
 
     Route::post('clients/store', [
         'as'   => 'clients.store', 'uses' => 'ClientsController@store'
     ]);
 
-
-    Route::get('clients/edit/{id}', 'ClientsController@edit')->where('id', '[0-9]+');
-
-    Route::get('clients/destroy/{id}', 'ClientsController@destroy')->where('id', '[0-9]+');
+    Route::post('clients/update/{id}', [
+        'as'   => 'clients.update', 'uses' => 'ClientsController@update'
+    ])->where('id', '[0-9]+');
 });
 
 Route::controllers([

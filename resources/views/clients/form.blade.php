@@ -16,6 +16,7 @@
     <div class="form-group">
         {!! Form::label('name', ucfirst(trans('form.name'))); !!}
         {!! Form::text('name', old('name'), ['class' => 'form-control']); !!}
+        <!--{!! Form::text('name', old('name'), ['class' => 'form-control']); !!}-->
     </div>
 
     <!-- E-mail -->
