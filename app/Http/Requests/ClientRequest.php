@@ -26,11 +26,9 @@ class ClientRequest extends Request
      */
     public function rules()
     {
-        if (Request::route()->parameter('id')) {
-            $unique = 'unique:clients,email,'.Request::route()->parameter('id');
-        } else {
-            $unique = 'unique:clients';
-        }
+        $id = Request::route()->parameter('id');
+
+        $unique = $id ? 'unique:clients,email,' . $id : 'unique:clients';
 
         return [
             'email'     => 'required|email|'.$unique.'|max:255',
