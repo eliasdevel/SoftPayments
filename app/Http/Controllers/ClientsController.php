@@ -7,41 +7,50 @@ use App\Http\Requests\ClientRequest;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Input;
 
-class clientsController extends Controller {
+class clientsController extends Controller
+{
 
-    public function index() {
+    public function index()
+    {
 
         return view('clients.index')->with('clients', Clients::all())->with('rows', Clients::count());
     }
 
-    public function create() {
+    public function create()
+    {
         return view('clients.create');
     }
 
-    public function store(ClientRequest $request) {
-
+    public function store(ClientRequest $request)
+    {
         //Save
-        $input = $request->all();
-        Clients::create($input);
+        Clients::create($request->all());
 
         return redirect('clients');
     }
 
-    public function edit($id) {
+    public function edit($id)
+    {
         $client = Clients::find($id);
 
         return view('clients.edit', compact('client'));
     }
 
-    public function update($id) {
-        //
+    public function update(ClientRequest $request, $id)
+    {
+
+        $user = Clients::find($id);
+
+        $user->update($request->all());
+
+        return redirect('clients');
     }
 
-    public function destroy($id) {
+    public function destroy($id)
+    {
 
         Clients::destroy($id);
 
         return redirect('clients');
     }
-
 }

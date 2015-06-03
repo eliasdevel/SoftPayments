@@ -33,13 +33,13 @@
     <!-- Phone -->
     <div class="form-group">
         {!! Form::label('phone', ucfirst(trans('form.phone'))); !!}
-        {!! Form::text('company', null, ['class' => 'form-control']); !!}
+        {!! Form::text('phone', null, ['class' => 'form-control']); !!}
     </div>
 
     <!-- Cellphone -->
     <div class="form-group">
         {!! Form::label('cellphone', ucfirst(trans('form.cellphone'))); !!}
-        {!! Form::text('company', null, ['class' => 'form-control']); !!}
+        {!! Form::text('cellphone', null, ['class' => 'form-control']); !!}
     </div>
 
     @include('layout.buttons', ['buttons' => ['submit']])
